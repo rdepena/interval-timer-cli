@@ -15,7 +15,7 @@ var cli = meow({
 
 var flags = cli.flags;
 
-  var intervals = flags.intervals || '0.1, 0.2',
+  var intervals = flags.intervals || '25,5',
     sets = flags.sets || 1,
     quiet = flags.quiet || false,
     intervalInts = intervals.split(',').map(function(i){

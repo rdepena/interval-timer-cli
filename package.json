@@ -1,6 +1,6 @@
 {
   "name": "interval-timer-cli",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "interval timer for the cli",
   "author": {
     "name": "Ricardo de Pena",
