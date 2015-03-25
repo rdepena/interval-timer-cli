@@ -1,12 +1,12 @@
 {
-  "name": "node-interval-timer",
+  "name": "interval-timer-cli",
   "version": "0.0.0",
   "description": "interval timer for the cli",
   "author": {
     "name": "Ricardo de Pena",
     "email": "ricardo.depena@gmail.com"
   },
-  "repository": "rdepena/node-interval-timer",
+  "repository": "rdepena/interval-timer-cli",
   "license": "MIT",
   "files": [
     "index.js",
@@ -35,6 +35,6 @@
     "test": "grunt"
   },
   "bin": {
-    "node-interval-timer": "cli.js"
+    "interval-timer": "cli.js"
   }
 }

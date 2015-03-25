@@ -1,37 +1,30 @@
-#  [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+> Pomodoro / HIIT style Interval timer right in the console.
 
-> interval timer for the cli
-
+Cli tool that lets you create a set of interval sequences.
 
 ## Install
 
 ```sh
-$ npm install --save node-interval-timer
+$ npm install --global interval-timer-cli
+$ interval-timer --help
 ```
 
 
 ## Usage
 
-```js
-var nodeIntervalTimer = require('node-interval-timer');
-
-nodeIntervalTimer('Rainbow');
-```
-
+Creating a pomodoro set of 25 minutes, then five minutes that will be repeated twice:
 ```sh
-$ npm install --global node-interval-timer
-$ node-interval-timer --help
+$ interval-timer --sets 2 --intervals 25,5
 ```
-
+Creating a practice sequence of 15 minutes, then five minutes then 3 minutes that will be done just once:
+```sh
+$ interval-timer --intervals 15,5,3
+```
+The quiet flag can be used to silence the alarm:
+```sh
+$ interval-timer --quiet --sets 2 --intervals 25,5
+```
 
 ## License
 
-MIT © [Ricardo de Pena]()
-
-
-[npm-image]: https://badge.fury.io/js/node-interval-timer.svg
-[npm-url]: https://npmjs.org/package/node-interval-timer
-[travis-image]: https://travis-ci.org/rdepena/node-interval-timer.svg?branch=master
-[travis-url]: https://travis-ci.org/rdepena/node-interval-timer
-[daviddm-image]: https://david-dm.org/rdepena/node-interval-timer.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/rdepena/node-interval-timer
+MIT © [Ricardo de Pena](http://rdepena.com/)

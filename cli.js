@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 var meow = require('meow');
-var nodeIntervalTimer = require('./');
+var intervalTimerCli= require('./');
 
 var cli = meow({
   help: [
@@ -24,4 +24,4 @@ var flags = cli.flags;
 
 console.log('Will time', intervalInts, 'for ', sets, ' sets');
 
-nodeIntervalTimer(sets, intervalInts, quiet);
+intervalTimerCli(sets, intervalInts, quiet);
