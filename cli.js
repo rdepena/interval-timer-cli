@@ -16,13 +16,17 @@ var cli = meow({
 });
 
 var flags = cli.flags;
-
   var intervals = flags.intervals || '25,5',
     sets = flags.sets || 1,
     quiet = flags.quiet || false,
-    intervalInts = intervals.split(',').map(function(i){
-      return +i;
-    });
+    intervalInts;
+    if(intervals.split) {
+      intervalInts = intervals.split(',').map(function(i){
+        return +i;
+      });
+    } else {
+      intervalInts = [+intervals];
+    }
 
 console.log('Will time', intervalInts, 'for ', sets, ' sets');
 
