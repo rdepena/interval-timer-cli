@@ -5,11 +5,13 @@ var intervalTimerCli= require('./');
 
 var cli = meow({
   help: [
-    'Usage',
-    '  node-interval-timer <input>',
-    '',
+    'Options',
+    '--quiet will not use any sound',
+    '--intervals <desired minutes seperarated by \',\'>',
+    '--sets <number of repetitions for the intervals>',
     'Example',
-    '  node-interval-timer Unicorn'
+    'interval-timer --sets 2 --intervals 25,5',
+    'interval-timer --quiet --sets 2 --intervals 25,5'
   ].join('\n')
 });
 
