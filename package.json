@@ -1,6 +1,6 @@
 {
   "name": "interval-timer-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Cli tool that lets you create a set of interval sequences.",
   "author": {
     "name": "Ricardo de Pena",
