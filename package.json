@@ -1,0 +1,40 @@
+{
+  "name": "node-interval-timer",
+  "version": "0.0.0",
+  "description": "interval timer for the cli",
+  "author": {
+    "name": "Ricardo de Pena",
+    "email": "ricardo.depena@gmail.com"
+  },
+  "repository": "rdepena/node-interval-timer",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "keywords": [
+    "node-interval-timer",
+    ""
+  ],
+  "dependencies": {
+    "meow": "^3.1.0",
+    "say": "^0.6.0",
+    "single-line-log": "^0.4.1"
+  },
+  "devDependencies": {
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mocha-cli": "^1.12.0",
+    "jshint-stylish": "^1.0.1",
+    "load-grunt-tasks": "^3.1.0",
+    "time-grunt": "^1.1.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "bin": {
+    "node-interval-timer": "cli.js"
+  }
+}
