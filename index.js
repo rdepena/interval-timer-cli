@@ -1,9 +1,11 @@
 'use strict';
 
 var log = require('single-line-log').stdout,
-  say = require('say');
+  say = require('say'),
+  growl = require('growl');
 
-module.exports = function createIntervals(sets, intervals, quiet) {
+
+module.exports = function createIntervals(sets, intervals, speak) {
   var intervalSet = [];
 
   while(sets > 0) {
@@ -15,13 +17,13 @@ module.exports = function createIntervals(sets, intervals, quiet) {
     if (intervalSet.length <= 0) {
       return;
     }
-    startTimer(intervalSet.shift(), runTimer, quiet);
+    startTimer(intervalSet.shift(), runTimer, speak);
   }
 
   runTimer();
 };
 
-function startTimer(minutes, callback, quiet) {
+function startTimer(minutes, callback, speak) {
   var startTime = Date.now(),
     minutesInMs = minutes * 60 * 1000;
 
@@ -30,7 +32,7 @@ function startTimer(minutes, callback, quiet) {
   function tick () {
     var timeInSeconds = (startTime + minutesInMs - Date.now())/1000;
     if (timeInSeconds <= 0) {
-      alertUser('time is up', quiet);
+      alertUser('time is up', speak);
       callback();
     } else {
       print(getPrintableTime(minutesInMs/1000), getPrintableTime(timeInSeconds));
@@ -46,10 +48,10 @@ function getPrintableTime(timestamp) {
     minutes:Math.floor(timestamp / 60)
   };
 }
-function alertUser(phrase, quiet) {
+function alertUser(phrase, speak) {
   console.log(phrase, '\n');
-
-  if (!quiet) {
+  growl(phrase);
+  if (speak) {
     say.speak('Alex',phrase);
   }
 }
