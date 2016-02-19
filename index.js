@@ -52,7 +52,7 @@ function alertUser(phrase, speak) {
   console.log(phrase, '\n');
   growl(phrase);
   if (speak) {
-    say.speak('Alex',phrase);
+    say.speak(phrase, 'Alex');
   }
 }
 
