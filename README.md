@@ -40,6 +40,16 @@ The speak flag can be used to enable text to speech for audio feedback:
 
     $ interval-timer --speak --sets 2 --intervals 25,5
 
+Keybindings:
+
+During a set you can use the following keybindings:
+
+    "p" to pause/resume the timer.
+
+    "1-9" to add 1-9 minutes to the timer
+
+    "-" will remove 1 minute from the timer
+
 
 ## License
 
