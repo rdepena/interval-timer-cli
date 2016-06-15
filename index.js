@@ -75,6 +75,7 @@ function setKeybindingsForCurrentSet(intervalSet) {
       }
       if (key === "p" ) {
         intervalSet.paused = !intervalSet.paused;
+        updateTimer(intervalSet);
       }
       if (!isNaN(parseFloat(key))) {
         intervalSet.minutes+= +key;
@@ -93,6 +94,7 @@ function setKeybindingsForCurrentSet(intervalSet) {
 
 function updateTimer(intervalSet) {
   var timeRemaining = getRemainingTimeInSeconds(intervalSet);
+  var pPaused = intervalSet.paused ? 'paused' : '';
   if (timeRemaining <= 0) {
     timeRemaining = 0;
   }
@@ -101,5 +103,5 @@ function updateTimer(intervalSet) {
     minutes:Math.floor(timeRemaining / 60)
   };
 
-  log('Current timer: ', pTime.minutes, ':', pTime.seconds, '\n');
+  log('Current timer:', pTime.minutes, ':', pTime.seconds, pPaused,'\n');
 }
