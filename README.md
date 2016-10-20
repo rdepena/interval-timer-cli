@@ -8,14 +8,14 @@ Cli tool that lets you create a set of interval sequences.
 
 ### OSX
 
-    $ sudo gem install terminal-notifier
+    $ sudo gem install -n /usr/local/bin terminal-notifier
 
 Install [npm](http://npmjs.org/) and run:
 
     $ npm install --global interval-timer-cli
 
 
-### Ubuntu (Linux)
+### Linux
 
     $ sudo apt-get install festival festvox-kallpc16k libnotify-bin
 
