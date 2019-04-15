@@ -2,7 +2,7 @@
 
 var log = require('single-line-log').stdout;
 var say = require('say');
-var growl = require('growl');
+var notifier = require('node-notifier');
 var stdin = process.stdin;
 
 stdin.setRawMode( true );
@@ -46,7 +46,10 @@ function startTimer(minutes, callback, speak) {
       if (timeInSeconds <= 0) {
         var phrase = 'interval complete';
         console.log(phrase, '\n');
-        growl(phrase, { title: 'interval-timer'});
+        notifier.notify({
+          title: 'interval-timer',
+          message: phrase
+        });
         if (currentSet.speak) {
           say.speak(phrase);
         }
