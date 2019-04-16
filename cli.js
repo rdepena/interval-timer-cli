@@ -1,8 +1,6 @@
-#!/usr/bin/env node
-'use strict';
-var meow = require('meow');
-var intervalTimerCli= require('./');
-var cli = meow({
+const meow = require('meow');
+const intervalTimerCli= require('./');
+const cli = meow({
   help: [
     'Options',
     '-spk --speak <will enable text to speech for audio feedback>',
@@ -20,13 +18,13 @@ var cli = meow({
   ].join('\n')
 });
 
-var flags = cli.flags;
-var intervals = flags.intervals || flags.i;
-var sets = flags.sets || flags.s || 1;
-var speak = flags.speak || flags.spk || false;
-var labels = flags.labels || flags.l || [];
-var pSets = sets > 1 ? 'iterations' : 'iteration';
-var intervalInts;
+const flags = cli.flags;
+const intervals = flags.intervals || flags.i;
+const sets = flags.sets || flags.s || 1;
+const speak = flags.speak || flags.spk || false;
+const labels = flags.labels || flags.l || [];
+const pSets = sets > 1 ? 'iterations' : 'iteration';
+let intervalInts;
 
 if(intervals === undefined) {
   console.log(cli.help);
@@ -34,13 +32,13 @@ if(intervals === undefined) {
   return;
 }
 else if(intervals.split) {
-  intervalInts = intervals.split(',').map(function(i){
+  intervalInts = intervals.split(',').map(i => {
     return +i;
   });
 } else {
   intervalInts = [+intervals];
 }
-var pIntervals = intervalInts.map(function(v) {
+const pIntervals = intervalInts.map(v => {
   return v + (v > 1 ? ' minutes' : ' minute');
 });
 

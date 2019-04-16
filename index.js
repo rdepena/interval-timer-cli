@@ -1,16 +1,14 @@
-'use strict';
-
-var log = require('single-line-log').stdout;
-var say = require('say');
-var notifier = require('node-notifier');
-var stdin = process.stdin;
+const log = require('single-line-log').stdout;
+const say = require('say');
+const notifier = require('node-notifier');
+const stdin = process.stdin;
 
 stdin.setRawMode( true );
 stdin.resume();
 stdin.setEncoding( 'utf8' );
 
 module.exports = function createIntervals(sets, intervals, speak) {
-  var intervalSet = [];
+  let intervalSet = [];
 
   while(sets > 0) {
     intervalSet = intervalSet.concat(intervals);
@@ -29,29 +27,29 @@ module.exports = function createIntervals(sets, intervals, speak) {
 };
 
 function startTimer(minutes, callback, speak) {
-  var currentSet = {
+  const currentSet = {
     minutes: minutes,
     startTime: Date.now(),
     now: Date.now(),
     speak: speak,
     paused: false
   };
-  var removeListener = setKeybindingsForCurrentSet(currentSet);
+  const removeListener = setKeybindingsForCurrentSet(currentSet);
   tick(currentSet);
   function tick () {
     if (!currentSet.paused) {
       currentSet.now+=1000;
-      var timeInSeconds = getRemainingTimeInSeconds(currentSet);
+      const timeInSeconds = getRemainingTimeInSeconds(currentSet);
 
       if (timeInSeconds <= 0) {
-        var phrase = 'interval complete';
-        console.log(phrase, '\n');
+        const message = 'interval complete';
+        console.log(message, '\n');
         notifier.notify({
           title: 'interval-timer',
-          message: phrase
+          message
         });
         if (currentSet.speak) {
-          say.speak(phrase);
+          say.speak(message);
         }
         removeListener();
         callback();
@@ -106,5 +104,5 @@ function updateTimer(intervalSet) {
     minutes:Math.floor(timeRemaining / 60)
   };
 
-  log('Current timer:', pTime.minutes, ':', pTime.seconds, pPaused,'\n');
+  log(`Current timer: ${pTime.minutes}:${pTime.seconds} ${pPaused} \n`);
 }
