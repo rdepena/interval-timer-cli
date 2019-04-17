@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const meow = require('meow');
 const intervalTimerCli= require('./');
 const cli = meow({
